@@ -1,9 +1,9 @@
 package Etat;
 
 public class Creneau {
-	private int id;
-	private string horaire;
-	private EtatCreneau etatCreneau;
+//	private int id;
+//	private string horaire;
+//	private EtatCreneau etatCreneau;
 
 	public void etatDisponible() {
 		// TODO - implement Creneau.etatDisponible
