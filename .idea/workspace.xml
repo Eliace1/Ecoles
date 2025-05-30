@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="913ca1e8-fb95-45f4-96a2-a9d77910ebe5" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2025_22_54_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2025_22_54__Changes_.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Etat/Cours.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Etat/Cours.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Etat/Creneau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Etat/Creneau.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/paiement/ModePaiement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paiement/ModePaiement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/paiement/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paiement/Notification.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/paiement/Paiement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paiement/Paiement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/paiement/PaiementEchelonne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paiement/PaiementEchelonne.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/paiement/PaiementUnique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paiement/PaiementUnique.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/Enfant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Enfant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/Gestionnaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Gestionnaire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Utilisateur.java" afterDir="false" />
@@ -51,6 +46,9 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2xOh0ALnPXXLsPQi9bpv2EJnrEG" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
