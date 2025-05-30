@@ -3,7 +3,7 @@ package paiement;
 public class Paiement {
 
 	private double montant;
-	private String date;
+	private string date;
 	private ModePaiement mode;
 
 	public void effectuerPaiement() {
