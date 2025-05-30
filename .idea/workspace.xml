@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="913ca1e8-fb95-45f4-96a2-a9d77910ebe5" name="Changes" comment="">
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Etat/Cours.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Etat/Cours.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Etat/Creneau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Etat/Creneau.java" afterDir="false" />
@@ -14,6 +15,14 @@
       <change beforePath="$PROJECT_DIR$/src/user/Enfant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Enfant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/Gestionnaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Gestionnaire.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/Parent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Parent.java" afterDir="false" />
+=======
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2025_22_54_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2025_22_54__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Etat/Cours.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Etat/Cours.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/Enfant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Enfant.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/Gestionnaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Gestionnaire.java" afterDir="false" />
+>>>>>>> aslie
       <change beforePath="$PROJECT_DIR$/src/user/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Utilisateur.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -22,6 +31,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -36,6 +50,12 @@
     &quot;accountId&quot;: &quot;9ae6f686-8887-4452-84a7-5440519bb8a6&quot;
   }
 }</component>
+<<<<<<< HEAD
+=======
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
+  </component>
+>>>>>>> aslie
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
@@ -48,6 +68,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
+<<<<<<< HEAD
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.Main.executor": "Run",
@@ -59,8 +80,18 @@
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0"
+=======
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;aslie&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/tacal/IdeaProjects/Ecole/src/Main.java&quot;
+>>>>>>> aslie
   }
-}]]></component>
+}</component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="913ca1e8-fb95-45f4-96a2-a9d77910ebe5" name="Changes" comment="" />
