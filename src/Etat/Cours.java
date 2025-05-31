@@ -7,7 +7,7 @@ public class Cours {
 	private String nom;
 	private List<Creneau> creneaux;
 
-	public Cours(String nom) {
+	public Cours(String nom, int i, int i1) {
 		this.nom = nom;
 		this.creneaux = new ArrayList<>();
 	}

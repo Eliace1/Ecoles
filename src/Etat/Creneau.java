@@ -15,6 +15,11 @@ public class Creneau {
 		etatCreneau = new EtatDisponible(this);
 	}
 
+	public Creneau(int id, String horaire) {
+		this.id = id;
+		this.horaire = horaire;
+	}
+
 	public EtatCreneau getEtatCreneau() {
 		return etatCreneau;
 	}

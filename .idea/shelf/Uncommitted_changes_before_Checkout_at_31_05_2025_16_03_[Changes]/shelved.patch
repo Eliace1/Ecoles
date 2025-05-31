@@ -1,0 +1,151 @@
+Index: src/Etat/Cours.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Etat;\r\n\r\nimport java.util.*;\r\n\r\npublic class Cours {\r\n\r\n\tprivate String nom;\r\n\tprivate List<Creneau> creneaux;\r\n\r\n\tpublic Cours(String nom) {\r\n\t\tthis.nom = nom;\r\n\t\tthis.creneaux = new ArrayList<>();\r\n\t}\r\n\r\n\tpublic void ajouterCreneau(Creneau c) {\r\n\t\tcreneaux.add(c);\r\n\t}\r\n\r\n\tpublic void afficherCreneaux() {\r\n\t\tSystem.out.println(\"Cours : \" + nom);\r\n\t\tfor (Creneau c : creneaux) {\r\n\t\t\tSystem.out.println(\"- Créneau ID \" + c.getId() + \" (\" + c.getHoraire() + \")\");\r\n\t\t}\r\n\t}\r\n\r\n\r\n\tpublic List<Creneau> getCreneaux() {\r\n\t\treturn creneaux;\r\n\t}\r\n\r\n\r\n\t\tpublic String getNom(){\r\n\t\t\treturn nom;\r\n\t\t}\r\n\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Etat/Cours.java b/src/Etat/Cours.java
+--- a/src/Etat/Cours.java	(revision b8e1d02e036b6f8059d125b3458d680c9d729309)
++++ b/src/Etat/Cours.java	(date 1748700013673)
+@@ -7,7 +7,7 @@
+ 	private String nom;
+ 	private List<Creneau> creneaux;
+ 
+-	public Cours(String nom) {
++	public Cours(String nom, int i, int i1) {
+ 		this.nom = nom;
+ 		this.creneaux = new ArrayList<>();
+ 	}
+Index: src/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\nimport Etat.Cours;\r\nimport Etat.Creneau;\r\nimport user.Enfant;\r\nimport user.Gestionnaire;\r\nimport user.Parent;\r\n\r\nimport javax.swing.JOptionPane;\r\n\r\nimport Etat.Cours;\r\nimport Etat.Creneau;\r\nimport Etat.EtatComplet;\r\nimport user.Enfant;\r\nimport user.Utilisateur;\r\n\r\n//TIP To <b>Run</b> code, press <shortcut actionId=\"Run\"/> or\r\n// click the <icon src=\"AllIcons.Actions.Execute\"/> icon in the gutter.\r\npublic class Main {\r\n    public static void main(String[] args) {\r\n        // Création des utilisateurs\r\n        Parent parent = new Parent(1, \"parent@mail.com\", \"Mme Dupont\", \"1234\");\r\n        Gestionnaire gestionnaire = new Gestionnaire(2, \"gestionnaire@mail.com\", \"M. Martin\", \"admin\");\r\n\r\n        // Menu de sélection\r\n        String[] options = {\"Parent\", \"Gestionnaire\"};\r\n        int choix = JOptionPane.showOptionDialog(null,\r\n                \"Qui souhaite se connecter ?\",\r\n                \"Connexion Utilisateur\",\r\n                JOptionPane.DEFAULT_OPTION,\r\n                JOptionPane.QUESTION_MESSAGE,\r\n                null,\r\n                options,\r\n                options[0]);\r\n\r\n        // Traitement selon le type d'utilisateur\r\n        if (choix == 0) {\r\n            parent.seConnecterAvecTentatives();\r\n            parent.afficherRole();\r\n\r\n            // Exemple : le parent ajoute des enfants\r\n            Enfant e1 = new Enfant(101, \"Emma\", 10);\r\n            Enfant e2 = new Enfant(102, \"Lucas\", 8);\r\n            parent.ajouterEnfant(e1);\r\n            parent.ajouterEnfant(e2);\r\n            parent.afficherEnfants();\r\n\r\n        } else if (choix == 1) {\r\n            gestionnaire.seConnecterAvecTentatives();\r\n            gestionnaire.afficherRole();\r\n\r\n            // Création simulée d'un cours et d'un créneau\r\n            Cours cours = new Cours(\"Mathématiques\",20,10);\r\n            Creneau creneau = new Creneau(1,\"14h\");\r\n\r\n            // Enfant à inscrire\r\n            Enfant e = new Enfant(103, \"Clara\", 9);\r\n\r\n            // Inscription\r\n            gestionnaire.inscrireEnfant(e, creneau, cours);\r\n\r\n            // Paiement\r\n            gestionnaire.gererPaiement(parent);\r\n        }\r\n\r\n\r\n        // Création d'enfants\r\n        Enfant e1 = new Enfant();\r\n        e1.setId(1);\r\n        e1.setNom(\"Alice\");\r\n        e1.setAge(7);\r\n\r\n        Enfant e2 = new Enfant();\r\n        e2.setId(2);\r\n        e2.setNom(\"Bob\");\r\n        e2.setAge(6);\r\n\r\n        Enfant e3 = new Enfant();\r\n        e3.setId(3);\r\n        e3.setNom(\"Charlie\");\r\n        e3.setAge(8);\r\n\r\n        // Création d'un créneau\r\n        Creneau c1 = new Creneau();\r\n        c1.setId(101);\r\n        c1.setHoraire(\"10h-11h\");\r\n        c1.setCapacite(2);\r\n        Creneau.setDisponibilite(2);  // Initialiser à la même valeur que la capacité\r\n\r\n        // Création d’un cours\r\n        Cours cours = new Cours(\"Danse\");\r\n        cours.ajouterCreneau(c1);\r\n\r\n        // Inscription des enfants\r\n        c1.AjouterEnfant(e1); // OK\r\n        c1.AjouterEnfant(e2); // OK → État devient complet\r\n        c1.AjouterEnfant(e3); // Refusé car complet\r\n\r\n        // Affichage des créneaux et des enfants inscrits\r\n        cours.afficherCreneaux();\r\n        System.out.println(\"Enfants inscrits dans le créneau :\");\r\n        for (Enfant e : c1.getEnfantsInscrits()) {\r\n            System.out.println(\"- \" + e.getNom());\r\n        }\r\n\r\n        // Afficher état courant\r\n        if (c1.getEtatCreneau() instanceof EtatComplet) {\r\n            System.out.println(\"État du créneau : COMPLET\");\r\n        } else {\r\n            System.out.println(\"État du créneau : DISPONIBLE\");\r\n        }\r\n    }\r\n\r\n\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Main.java b/src/Main.java
+--- a/src/Main.java	(revision b8e1d02e036b6f8059d125b3458d680c9d729309)
++++ b/src/Main.java	(date 1748700013685)
+@@ -7,11 +7,7 @@
+ 
+ import javax.swing.JOptionPane;
+ 
+-import Etat.Cours;
+-import Etat.Creneau;
+ import Etat.EtatComplet;
+-import user.Enfant;
+-import user.Utilisateur;
+ 
+ //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
+ // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+@@ -87,7 +83,7 @@
+         Creneau.setDisponibilite(2);  // Initialiser à la même valeur que la capacité
+ 
+         // Création d’un cours
+-        Cours cours = new Cours("Danse");
++        Cours cours = new Cours("Danse", 20, 10);
+         cours.ajouterCreneau(c1);
+ 
+         // Inscription des enfants
+Index: src/user/Enfant.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package user;\r\n\r\npublic class Enfant {\r\n\tprivate int id;\r\n\tprivate String nom;\r\n\tprivate int age;\r\n\r\n\tpublic Enfant(int id, String nom, int age) {\r\n\t\tthis.id = id;\r\n\t\tthis.nom = nom;\r\n\t\tthis.age = age;\r\n\t}\r\n\r\n\tpublic int getId() {\r\n\t\treturn id;\r\n\t}\r\n\r\n\tpublic String getNom() {\r\n\t\treturn nom;\r\n\t}\r\n\r\n\tpublic int getAge() {\r\n\t\treturn age;\r\n\t}\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/user/Enfant.java b/src/user/Enfant.java
+--- a/src/user/Enfant.java	(revision b8e1d02e036b6f8059d125b3458d680c9d729309)
++++ b/src/user/Enfant.java	(date 1748700013669)
+@@ -11,6 +11,10 @@
+ 		this.age = age;
+ 	}
+ 
++	public Enfant() {
++
++	}
++
+ 	public int getId() {
+ 		return id;
+ 	}
+@@ -22,4 +26,16 @@
+ 	public int getAge() {
+ 		return age;
+ 	}
++
++	public void setId(int id) {
++		this.id = id;
++	}
++
++	public void setNom(String nom) {
++		this.nom = nom;
++	}
++
++	public void setAge(int age) {
++		this.age = age;
++	}
+ }
+\ No newline at end of file
+Index: src/Etat/Creneau.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package Etat;\r\nimport user.Enfant;\r\n\r\nimport java.util.ArrayList;\r\nimport java.util.List;\r\npublic class Creneau {\r\n\t\tprivate int id;\r\n\t\tprivate String horaire;\r\n\t\tprivate int capacite;\r\n\t\tprivate static int disponibilite = 0;\r\n\t\tprivate EtatCreneau etatCreneau;\r\n\t\tprivate List<Enfant> enfantsInscrits;\r\n\r\n\tpublic Creneau() {\r\n\t\tetatCreneau = new EtatDisponible(this);\r\n\t}\r\n\r\n\tpublic EtatCreneau getEtatCreneau() {\r\n\t\treturn etatCreneau;\r\n\t}\r\n\r\n\tpublic void setEtatCreneau(EtatCreneau etatCreneau) {\r\n\t\tthis.etatCreneau = etatCreneau;\r\n\t}\r\n\r\n\tpublic void etatDisponible() {\r\n\t\t// TODO - implement Creneau.etatDisponible\r\n\t\tthrow new UnsupportedOperationException();\r\n\t}\r\n\r\n\tpublic void etatComplet() {\r\n\t\t// TODO - implement Creneau.etatComplet\r\n\t\tthrow new UnsupportedOperationException();\r\n\t}\r\n\r\n\tpublic void AjouterEnfant(Enfant enfant) {\r\n\t\tif (this.etatCreneau instanceof EtatComplet) {\r\n\t\t\tSystem.out.println(\"Créneau complet. Impossible d'inscrire \" + enfant.getNom());\r\n\t\t} else {\r\n\t\t\tenfantsInscrits.add(enfant);\r\n\t\t\tdisponibilite--;\r\n\t\t\tSystem.out.println(\"Enfant inscrit : \" + enfant.getNom());\r\n\r\n\t\t\tif (disponibilite == 0) {\r\n\t\t\t\tthis.etatCreneau.etatComplet(this);\r\n\t\t\t}\r\n}\r\n\r\n\t}\r\n\r\n\tpublic int getId() {\r\n\t\treturn id;\r\n\t}\r\n\r\n\tpublic void setId(int id) {\r\n\t\tthis.id = id;\r\n\t}\r\n\r\n\tpublic String getHoraire() {\r\n\t\treturn horaire;\r\n\t}\r\n\r\n\tpublic void setHoraire(String horaire) {\r\n\t\tthis.horaire = horaire;\r\n\t}\r\n\r\n\tpublic int getCapacite() {\r\n\t\treturn capacite;\r\n\t}\r\n\r\n\tpublic void setCapacite(int capacite) {\r\n\t\tthis.capacite = capacite;\r\n\t}\r\n\r\n\tpublic static int getDisponibilite() {\r\n\t\treturn disponibilite;\r\n\t}\r\n\r\n\tpublic static void setDisponibilite(int disponibilite) {\r\n\t\tCreneau.disponibilite = disponibilite;\r\n\t}\r\n\r\n\tpublic List<Enfant> getEnfantsInscrits() {\r\n\t\treturn enfantsInscrits;\r\n\t}\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/Etat/Creneau.java b/src/Etat/Creneau.java
+--- a/src/Etat/Creneau.java	(revision b8e1d02e036b6f8059d125b3458d680c9d729309)
++++ b/src/Etat/Creneau.java	(date 1748700013656)
+@@ -15,6 +15,11 @@
+ 		etatCreneau = new EtatDisponible(this);
+ 	}
+ 
++	public Creneau(int id, String horaire) {
++		this.id = id;
++		this.horaire = horaire;
++	}
++
+ 	public EtatCreneau getEtatCreneau() {
+ 		return etatCreneau;
+ 	}
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision b8e1d02e036b6f8059d125b3458d680c9d729309)
++++ b/.idea/workspace.xml	(date 1748700013903)
+@@ -1,0 +1,30 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
++  <component name="ChangeListManager">
++    <list default="true" id="77d0c0c8-d012-4733-a49c-33dd5b5b2ef4" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/src/Etat/Cours.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Etat/Cours.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Etat/Creneau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Etat/Creneau.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/user/Enfant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Enfant.java" afterDir="false" />
++    </list>
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "Application.Main.executor": "Run",
++    "git-widget-placeholder": "main"
++  }
++}]]></component>
++  <component name="TaskManager">
++    <servers />
++  </component>
++</project>
+\ No newline at end of file

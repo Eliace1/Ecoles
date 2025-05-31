@@ -1,8 +1,15 @@
+
+import Etat.Cours;
+import Etat.Creneau;
+import user.Enfant;
+import user.Gestionnaire;
+import user.Parent;
+
+import javax.swing.JOptionPane;
+
 import Etat.Cours;
 import Etat.Creneau;
 import Etat.EtatComplet;
-import user.Enfant;
-import user.Utilisateur;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -43,7 +50,7 @@ public class Main {
         Creneau.setDisponibilite(2);  // Initialiser à la même valeur que la capacité
 
         // Création d’un cours
-        Cours cours = new Cours("Danse");
+        Cours cours = new Cours("Danse", 20, 10);
         cours.ajouterCreneau(c1);
 
         // Inscription des enfants
