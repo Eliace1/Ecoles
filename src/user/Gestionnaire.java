@@ -1,5 +1,7 @@
 package user;
 
+import Etat.Creneau;
+
 public class Gestionnaire {
 
 	public void gererCrenaux() {
