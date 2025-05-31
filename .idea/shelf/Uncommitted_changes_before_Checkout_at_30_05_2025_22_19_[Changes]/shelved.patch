@@ -1,0 +1,17 @@
+Index: src/paiement/ModePaiement.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package paiement;\r\n\r\npublic abstract class ModePaiement {\r\n\r\n\t/**\r\n\t * \r\n\t * @param montant\r\n\t */\r\n\tpublic void paiement(double montant) {\r\n\t\t// TODO - implement ModePaiement.paiement\r\n\t\tthrow new UnsupportedOperationException();\r\n\t}\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/paiement/ModePaiement.java b/src/paiement/ModePaiement.java
+--- a/src/paiement/ModePaiement.java	(revision b12a7258d9df2c33eb1c8eb597d169bb0e90e3dd)
++++ b/src/paiement/ModePaiement.java	(date 1748636278702)
+@@ -11,4 +11,4 @@
+ 		throw new UnsupportedOperationException();
+ 	}
+ 
+-}
+\ No newline at end of file
++}

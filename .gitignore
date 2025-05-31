@@ -27,3 +27,5 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+###Ignorer le workspace.xml
+.idea/workspace.xml
