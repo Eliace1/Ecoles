@@ -1,0 +1,37 @@
+Index: src/user/Enfant.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package user;\r\n\r\npublic class Enfant {\r\n\tprivate int id;\r\n\tprivate string nom;\r\n\tprivate int age;\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/user/Enfant.java b/src/user/Enfant.java
+--- a/src/user/Enfant.java	(revision 3a8589a7633a8bdd35d216ea63cf1478a405538a)
++++ b/src/user/Enfant.java	(date 1748641877938)
+@@ -2,7 +2,24 @@
+ 
+ public class Enfant {
+ 	private int id;
+-	private string nom;
++	private String nom;
+ 	private int age;
+ 
++	public Enfant(int id, String nom, int age) {
++		this.id = id;
++		this.nom = nom;
++		this.age = age;
++	}
++
++	public int getId() {
++		return id;
++	}
++
++	public String getNom() {
++		return nom;
++	}
++
++	public int getAge() {
++		return age;
++	}
+ }
+\ No newline at end of file
