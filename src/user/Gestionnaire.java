@@ -1,31 +1,28 @@
 package user;
-
+import Etat.Cours;
 import Etat.Creneau;
+public class Gestionnaire extends Utilisateur {
 
-public class Gestionnaire {
+	public Gestionnaire(int id, String email, String nom, String password) {
 
-	public void gererCrenaux() {
-		// TODO - implement Gestionnaire.gererCrenaux
-		throw new UnsupportedOperationException();
+		super(id, email, nom, password);
 	}
 
-	/**
-	 * 
-	 * @param parents
-	 */
-	public void gererPaiement(Parent parents) {
-		// TODO - implement Gestionnaire.gererPaiement
-		throw new UnsupportedOperationException();
+	public void gererCreneaux() {
+		System.out.println("→ " + nom + " gère les créneaux.");
 	}
 
-	/**
-	 * 
-	 * @param enfant
-	 * @param creneau
-	 */
-	public void inscrireEnfant(Enfant enfant, Creneau creneau) {
-		// TODO - implement Gestionnaire.inscrireEnfant
-		throw new UnsupportedOperationException();
+	public void gererPaiement(Parent parent) {
+
+		System.out.println("→ Paiement géré pour le parent : " + parent.nom);
 	}
 
+	public void inscrireEnfant(Enfant enfant,  Creneau creneau, Cours cours) {
+		System.out.println("→ Enfant " + enfant.getNom() + " inscrit au cours : "+cours.getNom()+" au créneau : "+creneau.getHoraire());
+	}
+
+	@Override
+	public void afficherRole() {
+		System.out.println(nom + " est un gestionnaire.");
+	}
 }

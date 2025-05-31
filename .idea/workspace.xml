@@ -4,47 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="77d0c0c8-d012-4733-a49c-33dd5b5b2ef4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Etat/Cours.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Etat/Cours.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Etat/Creneau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Etat/Creneau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/user/Enfant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Enfant.java" afterDir="false" />
-    </list>
-    <option name="SHOW_DIALOG" value="false" />
-    <option name="HIGHLIGHT_CONFLICTS" value="true" />
-    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
-    <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "git-widget-placeholder": "main"
-  }
-}]]></component>
-  <component name="TaskManager">
-    <servers />
-  </component>
-</project>
-<?xml version="1.0" encoding="UTF-8"?>
-<project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="ChangeListManager">
-    <list default="true" id="913ca1e8-fb95-45f4-96a2-a9d77910ebe5" name="Changes" comment="">
+    <list default="true" id="70f060ee-3140-4e08-9274-2c8474ec34bc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_05_2025_22_26_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_05_2025_22_26_[Changes]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_29_05_2025_22_26__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2025_22_02_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2025_22_02_[Changes]1/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2025_22_02__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2025_22_02__Changes_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2025_22_17_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2025_22_17__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2025_22_19_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2025_22_19__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2025_22_20_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2025_22_20__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2025_23_52_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_30_05_2025_23_52__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2025_21_54_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2025_21_54__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2025_22_54_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2025_22_54__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2025_23_36_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_30_05_2025_23_36__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/configuration/EcoleFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Etat/Cours.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Etat/Cours.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Etat/Creneau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Etat/Creneau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Etat/EtatComplet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Etat/EtatComplet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Etat/EtatCreneau.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Etat/EtatCreneau.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Etat/EtatDisponible.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Etat/EtatDisponible.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/paiement/ModePaiement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paiement/ModePaiement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/paiement/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paiement/Notification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/paiement/Paiement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paiement/Paiement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/paiement/PaiementEchelonne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paiement/PaiementEchelonne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/paiement/PaiementUnique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paiement/PaiementUnique.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/Enfant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Enfant.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/user/Gestionnaire.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Gestionnaire.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/Parent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Parent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/Utilisateur.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Utilisateur.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,57 +54,14 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Eliace1&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "git-widget-placeholder": "Merging gina"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Eliace1/Ecoles.git&quot;,
-    &quot;accountId&quot;: &quot;9ae6f686-8887-4452-84a7-5440519bb8a6&quot;
-  }
-}</component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 1
-}</component>
-  <component name="ProjectId" id="2xOh0ALnPXXLsPQi9bpv2EJnrEG" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;gina&quot;,
-    &quot;onboarding.tips.debug.path&quot;: &quot;C:/Users/tacal/IdeaProjects/Ecole/src/Main.java&quot;
-  }
-}</component>
+}]]></component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="913ca1e8-fb95-45f4-96a2-a9d77910ebe5" name="Changes" comment="" />
-      <created>1747814805470</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1747814805470</updated>
-    </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

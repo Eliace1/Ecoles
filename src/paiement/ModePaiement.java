@@ -1,14 +1,13 @@
 package paiement;
 
-public abstract class ModePaiement {
+import java.util.Date;
+
+public interface ModePaiement {
 
 	/**
 	 * 
 	 * @param montant
 	 */
-	public void paiement(double montant) {
-		// TODO - implement ModePaiement.paiement
-		throw new UnsupportedOperationException();
-	}
+	public String paiement(double montant) ;
 
 }

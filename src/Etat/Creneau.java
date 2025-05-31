@@ -30,13 +30,11 @@ public class Creneau {
 
 	public void etatDisponible() {
 		// TODO - implement Creneau.etatDisponible
-		etatCreneau.etatDisponible(this);
 		throw new UnsupportedOperationException();
 	}
 
 	public void etatComplet() {
 		// TODO - implement Creneau.etatComplet
-		etatCreneau.etatComplet(this);
 		throw new UnsupportedOperationException();
 	}
 
