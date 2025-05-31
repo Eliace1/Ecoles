@@ -1,0 +1,17 @@
+Index: src/paiement/ModePaiement.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package paiement;\r\n\r\nimport java.util.Date;\r\n\r\npublic interface ModePaiement {\r\n\r\n\t/**\r\n\t * \r\n\t * @param montant\r\n\t */\r\n\tpublic String paiement(double montant) ;\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/paiement/ModePaiement.java b/src/paiement/ModePaiement.java
+--- a/src/paiement/ModePaiement.java	(revision d2d75255e1779a0861a4963b86d3abc43cd12f29)
++++ b/src/paiement/ModePaiement.java	(date 1748636348518)
+@@ -10,4 +10,4 @@
+ 	 */
+ 	public String paiement(double montant) ;
+ 
+-}
+\ No newline at end of file
++}
