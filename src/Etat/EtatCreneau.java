@@ -1,15 +1,17 @@
 package Etat;
 
 public abstract class EtatCreneau {
+   protected Creneau creneau;
 
-	public void etatDisponible() {
+   public EtatCreneau(Creneau creneau){
+	   this.creneau=creneau;
+   }
+	public abstract  void etatDisponible(Creneau creneau) ;
 		// TODO - implement EtatCreneau.etatDisponible
-		throw new UnsupportedOperationException();
-	}
 
-	public void etatComplet() {
+
+	public abstract void etatComplet(Creneau creneau) ;
 		// TODO - implement EtatCreneau.etatComplet
-		throw new UnsupportedOperationException();
+
 	}
 
-}
