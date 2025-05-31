@@ -1,0 +1,55 @@
+Index: src/paiement/Paiement.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package paiement;\r\n\r\npublic class Paiement {\r\n\r\n\tprivate double montant;\r\n\tprivate string date;\r\n\tprivate ModePaiement mode;\r\n\r\n\tpublic void effectuerPaiement() {\r\n\t\t// TODO - implement Paiement.effectuerPaiement\r\n\t\tthrow new UnsupportedOperationException();\r\n\t}\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/paiement/Paiement.java b/src/paiement/Paiement.java
+--- a/src/paiement/Paiement.java	(revision d2d75255e1779a0861a4963b86d3abc43cd12f29)
++++ b/src/paiement/Paiement.java	(date 1748635513088)
+@@ -3,7 +3,7 @@
+ public class Paiement {
+ 
+ 	private double montant;
+-	private string date;
++	private String date;
+ 	private ModePaiement mode;
+ 
+ 	public void effectuerPaiement() {
+Index: src/paiement/Notification.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package paiement;\r\n\r\npublic abstract class Notification {\r\n\r\n\t/**\r\n\t * \r\n\t * @param message\r\n\t */\r\n\tpublic void notifier(string message) {\r\n\t\t// TODO - implement Notification.notifier\r\n\t\tthrow new UnsupportedOperationException();\r\n\t}\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/paiement/Notification.java b/src/paiement/Notification.java
+--- a/src/paiement/Notification.java	(revision d2d75255e1779a0861a4963b86d3abc43cd12f29)
++++ b/src/paiement/Notification.java	(date 1748635496025)
+@@ -6,7 +6,7 @@
+ 	 * 
+ 	 * @param message
+ 	 */
+-	public void notifier(string message) {
++	public void notifier(String message) {
+ 		// TODO - implement Notification.notifier
+ 		throw new UnsupportedOperationException();
+ 	}
+Index: src/paiement/ModePaiement.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package paiement;\r\n\r\nimport java.util.Date;\r\n\r\npublic interface ModePaiement {\r\n\r\n\t/**\r\n\t * \r\n\t * @param montant\r\n\t */\r\n\tpublic String paiement(double montant) ;\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/paiement/ModePaiement.java b/src/paiement/ModePaiement.java
+--- a/src/paiement/ModePaiement.java	(revision d2d75255e1779a0861a4963b86d3abc43cd12f29)
++++ b/src/paiement/ModePaiement.java	(date 1748636210664)
+@@ -10,4 +10,4 @@
+ 	 */
+ 	public String paiement(double montant) ;
+ 
+-}
+\ No newline at end of file
++}

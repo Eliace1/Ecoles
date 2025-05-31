@@ -1,14 +1,27 @@
 package paiement;
 
-public class Paiement {
+import paiement.ModePaiement;
+import paiement.Notification;
 
+
+public abstract class Paiement extends Notification {
 	private double montant;
-	private string date;
-	private ModePaiement mode;
+	private String date;
+	protected ModePaiement modePaiement;
 
-	public void effectuerPaiement() {
-		// TODO - implement Paiement.effectuerPaiement
-		throw new UnsupportedOperationException();
+	public void setModePaiement(ModePaiement modePaiement){
+		this.modePaiement=modePaiement;
 	}
 
+	public void setMontant(double montant) {
+		this.montant = montant;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+	public void effectuerPaiement(){
+		String messagePaiement=modePaiement.paiement(montant);
+		notifier(messagePaiement);
+	}
 }

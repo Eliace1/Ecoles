@@ -1,0 +1,19 @@
+Index: src/paiement/Notification.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package paiement;\r\n\r\npublic abstract class Notification {\r\n\r\n\t/**\r\n\t * \r\n\t * @param message\r\n\t */\r\n\tpublic void notifier(string message) {\r\n\t\t// TODO - implement Notification.notifier\r\n\t\tthrow new UnsupportedOperationException();\r\n\t}\r\n\r\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/paiement/Notification.java b/src/paiement/Notification.java
+--- a/src/paiement/Notification.java	(revision d2d75255e1779a0861a4963b86d3abc43cd12f29)
++++ b/src/paiement/Notification.java	(date 1748635349987)
+@@ -6,7 +6,7 @@
+ 	 * 
+ 	 * @param message
+ 	 */
+-	public void notifier(string message) {
++	public void notifier(String message) {
+ 		// TODO - implement Notification.notifier
+ 		throw new UnsupportedOperationException();
+ 	}
