@@ -1,5 +1,6 @@
 package Etat;
 
+import javax.swing.*;
 import java.util.*;
 
 public class Cours {
@@ -7,21 +8,34 @@ public class Cours {
 	private String nom;
 	private List<Creneau> creneaux;
 
-	public Cours(String nom, int i, int i1) {
+	public Cours(String nom) {
 		this.nom = nom;
 		this.creneaux = new ArrayList<>();
 	}
 
 	public void ajouterCreneau(Creneau c) {
-		creneaux.add(c);
-	}
-
-	public void afficherCreneaux() {
-		System.out.println("Cours : " + nom);
-		for (Creneau c : creneaux) {
-			System.out.println("- Créneau ID " + c.getId() + " (" + c.getHoraire() + ")");
+		if (creneaux.contains(c)) {
+			JOptionPane.showMessageDialog(null, "Ce créneau existe déjà pour le cours " + nom);
+		} else {
+			creneaux.add(c);
+			JOptionPane.showMessageDialog(null, "Créneau ajouté au cours " + nom);
 		}
 	}
+
+
+	public void afficherCreneaux() {
+		if (creneaux.isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Aucun créneau pour le cours " + nom);
+			return;
+		}
+		StringBuilder sb = new StringBuilder("Cours : " + nom + "\n");
+		for (Creneau c : creneaux) {
+			sb.append("- Créneau ID ").append(c.getId())
+					.append(" (").append(c.getHoraire()).append(")\n");
+		}
+		JOptionPane.showMessageDialog(null, sb.toString());
+	}
+
 
 
 	public List<Creneau> getCreneaux() {

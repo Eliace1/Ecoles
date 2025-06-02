@@ -3,16 +3,37 @@ package user;
 import javax.swing.JOptionPane;
 
 public abstract class Utilisateur {
-	protected int id;
+	protected static int id;
 	protected String email;
 	protected String nom;
 	protected String password;
 
-	public Utilisateur(int id, String email, String nom, String password) {
-		this.id = id;
+	public Utilisateur() {
+		id++;
+	}
+
+	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public void setNom(String nom) {
 		this.nom = nom;
+	}
+
+	public void setPassword(String password) {
 		this.password = password;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public String getPassword() {
+		return password;
 	}
 
 	public void seConnecterAvecTentatives() {
@@ -25,12 +46,12 @@ public abstract class Utilisateur {
 
 			if (emailSaisi == null) {
 				JOptionPane.showMessageDialog(null, "❌ Connexion annulée par l'utilisateur.");
-				return; // arrêt immédiat de la connexion
+				System.exit(0); // 🔴 quitte complètement le programme
 			}
 
 			if (emailSaisi.trim().isEmpty()) {
 				JOptionPane.showMessageDialog(null, "⚠️ Veuillez entrer un email.");
-				continue; // ne compte pas comme tentative
+				continue;
 			}
 
 			if (!this.email.equals(emailSaisi)) {
@@ -39,17 +60,16 @@ public abstract class Utilisateur {
 				continue;
 			}
 
-			// Email correct → demande du mot de passe
 			String mdpSaisi = JOptionPane.showInputDialog(null, "Entrez votre mot de passe :");
 
 			if (mdpSaisi == null) {
 				JOptionPane.showMessageDialog(null, "❌ Connexion annulée par l'utilisateur.");
-				return; // arrêt immédiat
+				System.exit(0); // 🔴 quitte complètement le programme
 			}
 
 			if (mdpSaisi.trim().isEmpty()) {
 				JOptionPane.showMessageDialog(null, "⚠️ Veuillez entrer un mot de passe.");
-				continue; // ne compte pas comme tentative
+				continue;
 			}
 
 			if (!this.password.equals(mdpSaisi)) {
@@ -62,7 +82,8 @@ public abstract class Utilisateur {
 		}
 
 		if (!estConnecte) {
-			JOptionPane.showMessageDialog(null, "⛔ Trop de tentatives ou connexion annulée. Connexion refusée.");
+			JOptionPane.showMessageDialog(null, "⛔ Trop de tentatives. Connexion refusée.");
+			System.exit(0); // 🔴 quitte si échec
 		}
 	}
 

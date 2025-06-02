@@ -2,10 +2,24 @@ package configuration;
 
 public class Configuration {
 
-	private Configuration configuration;
+	private static Configuration instance;
+	private String 		modePaiement = "paiementEchelonne";
 
-	public Configuration getConfiguration() {
-		return this.configuration;
+	private Configuration(){
 	}
 
+	public String getModePaiement() {
+		return modePaiement;
+	}
+
+	public void setModePaiement(String modePaiement) {
+		this.modePaiement = modePaiement;
+	}
+
+	public static Configuration getInstance(){
+		if(instance==null){
+			instance=new Configuration();
+		}
+		return instance;
+	}
 }
