@@ -1,23 +1,32 @@
 package Etat;
 import user.Enfant;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 public class Creneau {
+		private static int compteurId=0;
 		private int id;
 		private String horaire;
 		private int capacite;
-		private static int disponibilite = 0;
+		private String jour;
+		private static int disponibilite;
 		private EtatCreneau etatCreneau;
 		private List<Enfant> enfantsInscrits;
 
-	public Creneau() {
+	public Creneau(String jour,String horaire, int capacite) {
 		etatCreneau = new EtatDisponible(this);
+		enfantsInscrits=new ArrayList<>();
+		this.id=compteurId;
+		id++;
+		this.jour=jour;
+		this.horaire=horaire;
+		this.capacite=capacite;
+		disponibilite=capacite;
 	}
 
-	public Creneau(int id, String horaire) {
-		this.id = id;
-		this.horaire = horaire;
+	public  int getId() {
+		return id;
 	}
 
 	public EtatCreneau getEtatCreneau() {
@@ -38,29 +47,28 @@ public class Creneau {
 		throw new UnsupportedOperationException();
 	}
 
-	public void AjouterEnfant(Enfant enfant) {
+	public String getJour() {
+		return jour;
+	}
+
+	public void ajouterEnfant(Enfant enfant) {
+		if (enfantsInscrits.contains(enfant)) {
+			JOptionPane.showMessageDialog(null, "L'enfant " + enfant.getNom() + " est déjà inscrit.");
+			return;
+		}
+
 		if (this.etatCreneau instanceof EtatComplet) {
-			System.out.println("Créneau complet. Impossible d'inscrire " + enfant.getNom());
+			JOptionPane.showMessageDialog(null, "Créneau complet. Impossible d'inscrire " + enfant.getNom());
 		} else {
 			enfantsInscrits.add(enfant);
 			disponibilite--;
-			System.out.println("Enfant inscrit : " + enfant.getNom());
+			JOptionPane.showMessageDialog(null, "Enfant inscrit : " + enfant.getNom());
 
 			if (disponibilite == 0) {
 				this.etatCreneau.etatComplet(this);
 			}
-}
-
+		}
 	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
 	public String getHoraire() {
 		return horaire;
 	}

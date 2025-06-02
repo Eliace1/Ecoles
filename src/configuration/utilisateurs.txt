@@ -1,0 +1,5 @@
+Parent,Jean Dupont,jean@mail.com,pass123
+Parent,Alice Martin,alice@mail.com,alicepwd
+Gestionnaire,Marie Curie,marie@mail.com,admin2024
+Parent,Paul Bernard,paul@mail.com,paulpass
+Gestionnaire,Luc Durand,luc@mail.com,lucadmin

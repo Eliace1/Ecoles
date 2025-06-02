@@ -6,8 +6,11 @@ import paiement.Notification;
 
 public abstract class Paiement extends Notification {
 	private double montant;
-	private String date;
 	protected ModePaiement modePaiement;
+
+	public Paiement() {
+
+	}
 
 	public void setModePaiement(ModePaiement modePaiement){
 		this.modePaiement=modePaiement;
@@ -17,9 +20,7 @@ public abstract class Paiement extends Notification {
 		this.montant = montant;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
-	}
+
 	public void effectuerPaiement(){
 		String messagePaiement=modePaiement.paiement(montant);
 		notifier(messagePaiement);

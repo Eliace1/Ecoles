@@ -1,16 +1,15 @@
 package user;
 
+import javax.swing.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Parent extends Utilisateur {
 	private List<Enfant> enfants;
 
-	public Parent(int id, String email, String nom, String password) {
-		super(id, email, nom, password);
+	public Parent(){
 		this.enfants = new ArrayList<>();
 	}
-
 	public void ajouterEnfant(Enfant enfant) {
 		enfants.add(enfant);
 		System.out.println("→ Enfant " + enfant.getNom() + " ajouté à " + nom);
@@ -26,14 +25,19 @@ public class Parent extends Utilisateur {
 	}
 
 	public void afficherEnfants() {
-		System.out.println("Liste des enfants de " + nom + " :");
+		StringBuilder sb = new StringBuilder("👨‍👩‍👧‍👦 Enfants de " + nom + " :\n\n");
+
 		if (enfants.isEmpty()) {
-			System.out.println("   Aucun enfant inscrit.");
+			sb.append("Aucun enfant inscrit.");
 		} else {
 			for (Enfant enfant : enfants) {
-				System.out.println("   - " + enfant.getNom() + " (Âge : " + enfant.getAge() + ")");
+				sb.append("- ").append(enfant.getNom())
+						.append(" (Âge : ").append(enfant.getAge()).append(")\n");
 			}
 		}
+
+		JOptionPane.showMessageDialog(null, sb.toString());
 	}
+
 
 }

@@ -2,11 +2,13 @@ package user;
 
 public class Enfant {
 	private int id;
+	private static int compterId=0;
 	private String nom;
 	private int age;
 
-	public Enfant(int id, String nom, int age) {
-		this.id = id;
+	public Enfant( String nom, int age) {
+		compterId++;
+		this.id=compterId;
 		this.nom = nom;
 		this.age = age;
 	}

@@ -5,35 +5,38 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 public class PaiementEchelonne implements ModePaiement {
-    private int     nombreFois = 3;
+    private int     nombreFois;
     private HashMap<Date, Double> echeances = new HashMap<Date, Double>();
 
     public PaiementEchelonne(){
+
+    }
+
+    @Override
+    public String paiement(double montant) {
         Calendar calendar = Calendar.getInstance();
-        double montantParPaiement = 100/nombreFois;
-        for(int i=1; i<nombreFois;i++){
-            calendar.add(Calendar.DAY_OF_MONTH,30);
-            echeances.put(calendar.getTime(),montantParPaiement);
-        }
+        double montantParPaiement = montant / nombreFois;
 
         // Formatter en français
         Locale localeFr = new Locale("fr", "FR");
         DateFormat formatFr = new SimpleDateFormat("dd MMMM yyyy", localeFr);
 
-        System.out.println("🗓️ Échéances prévues :");
+        StringBuilder sb = new StringBuilder("🗓️ Échéances prévues :\n");
+
         for (int i = 1; i <= nombreFois; i++) {
             calendar.add(Calendar.DAY_OF_MONTH, 30);
             Date dateEcheance = calendar.getTime();
             echeances.put(dateEcheance, montantParPaiement);
 
-            // ✅ Affichage formaté
-            System.out.println("Date : " + formatFr.format(dateEcheance) + " → Montant : " + montantParPaiement + " €");
+            sb.append("Date : ")
+                    .append(formatFr.format(dateEcheance))
+                    .append(" → Montant : ")
+                    .append(montantParPaiement)
+                    .append(" €\n");
         }
-    }
 
-    @Override
-    public String paiement(double montant) {
-        return "Paiement échelonné de "+montant/nombreFois+" £ accepté";
+        sb.append("Paiement échelonné de ").append(montantParPaiement).append(" € accepté");
+        return sb.toString();
     }
     public void verifierPaiement(Date aujourdHui, Notification notif){
         for(HashMap.Entry<Date,Double> entry : echeances.entrySet()){

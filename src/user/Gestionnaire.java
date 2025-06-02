@@ -3,11 +3,9 @@ import Etat.Cours;
 import Etat.Creneau;
 public class Gestionnaire extends Utilisateur {
 
-	public Gestionnaire(int id, String email, String nom, String password) {
-
-		super(id, email, nom, password);
-	}
-
+	public Gestionnaire (){
+        super();
+    }
 	public void gererCreneaux() {
 		System.out.println("→ " + nom + " gère les créneaux.");
 	}
