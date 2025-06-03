@@ -1,13 +1,13 @@
 package paiement;
 
-public abstract class Notification {
+import javax.swing.*;
+
+public interface Notification {
 
 	/**
 	 * 
 	 * @param message
 	 */
-	public void notifier(String message){
-		System.out.println("Notification :"+message);
-	}
+	public void notifier(String message);
 
 }

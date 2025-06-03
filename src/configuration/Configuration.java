@@ -1,19 +1,17 @@
 package configuration;
 
+import paiement.ModePaiement;
+
 public class Configuration {
 
 	private static Configuration instance;
-	private String 		modePaiement = "paiementEchelonne";
+	private ModePaiement modePaiement ;
 
 	private Configuration(){
-	}
 
-	public String getModePaiement() {
-		return modePaiement;
 	}
-
-	public void setModePaiement(String modePaiement) {
-		this.modePaiement = modePaiement;
+	public ModePaiement creerModePaiement(String modePaiement){
+		return EcoleFactory.getModePaiement(modePaiement);
 	}
 
 	public static Configuration getInstance(){

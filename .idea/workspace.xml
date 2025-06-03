@@ -6,6 +6,15 @@
   <component name="ChangeListManager">
     <list default="true" id="70f060ee-3140-4e08-9274-2c8474ec34bc" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Etat/Cours.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Etat/Cours.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/configuration/Configuration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/configuration/Configuration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/configuration/EcoleFacade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/configuration/EcoleFacade.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/paiement/ModePaiement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paiement/ModePaiement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/paiement/Notification.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paiement/Notification.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/paiement/Paiement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paiement/Paiement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/paiement/PaiementEchelonne.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paiement/PaiementEchelonne.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/paiement/PaiementUnique.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/paiement/PaiementUnique.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/user/Parent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/user/Parent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,14 +59,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "aslie"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;aslie&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="Ecole" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="70f060ee-3140-4e08-9274-2c8474ec34bc" name="Changes" comment="" />

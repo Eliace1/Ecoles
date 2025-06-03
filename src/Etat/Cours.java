@@ -7,9 +7,12 @@ public class Cours {
 
 	private String nom;
 	private List<Creneau> creneaux;
+	private  long montantHoraire;
+	private  HashMap<Creneau,Long> creneauMontant = new HashMap<>();
 
-	public Cours(String nom) {
+	public Cours(String nom, long montantHoraire) {
 		this.nom = nom;
+		this.montantHoraire=montantHoraire;
 		this.creneaux = new ArrayList<>();
 	}
 
@@ -18,10 +21,18 @@ public class Cours {
 			JOptionPane.showMessageDialog(null, "Ce créneau existe déjà pour le cours " + nom);
 		} else {
 			creneaux.add(c);
+			creneauMontant.put(c,this.montantHoraire);
 			JOptionPane.showMessageDialog(null, "Créneau ajouté au cours " + nom);
 		}
 	}
 
+	public HashMap<Creneau, Long> getCreneauMontant() {
+		return creneauMontant;
+	}
+
+	public long getMontantHoraire() {
+		return montantHoraire;
+	}
 
 	public void afficherCreneaux() {
 		if (creneaux.isEmpty()) {

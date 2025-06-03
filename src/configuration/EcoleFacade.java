@@ -3,6 +3,9 @@ package configuration;
 import Etat.Cours;
 import Etat.Creneau;
 import configuration.EcoleFactory;
+import paiement.ModePaiement;
+import paiement.Notification;
+import paiement.Paiement;
 import user.Enfant;
 import user.Gestionnaire;
 import user.Parent;
@@ -11,12 +14,14 @@ import user.Utilisateur;
 import javax.swing.*;
 import java.io.*;
 import java.util.*;
+import java.util.Timer;
 
 public class EcoleFacade {
     private List<Utilisateur> utilisateurs = new ArrayList<>();
     private List<Cours> listcours = new ArrayList<>();
     private List<Creneau> listcreneaux = new ArrayList<>();
     private Creneau dernierCreneau;
+    private Timer timer = new Timer();
     public void chargerUtilisateurs(String fichier) {
         try (BufferedReader reader = new BufferedReader(new FileReader(fichier))) {
             String ligne;
@@ -179,48 +184,112 @@ public class EcoleFacade {
         if (choix < 0) return null;
         return enfants.get(choix);
     }
-//    private void choisirEtEffectuerPaiement(Parent parent, double montant) {
-//        String[] optionsPaiement = {"Paiement échelonné", "Paiement en une fois"};
-//        int choixPaiement = JOptionPane.showOptionDialog(
-//                null,
-//                "Choisissez le mode de paiement:",
-//                "Paiement",
-//                JOptionPane.DEFAULT_OPTION,
-//                JOptionPane.INFORMATION_MESSAGE,
-//                null,
-//                optionsPaiement,
-//                optionsPaiement[0]
-//        );
-//
-//        if (choixPaiement == -1) return;
-//
-//        if (choixPaiement == 0)
-//            configuration.Configuration.getInstance().setModePaiement("paiementEchelonne");
-//        else
-//            configuration.Configuration.getInstance().setModePaiement("paiementUnique");
-//
-//        effectuerPaiement(parent, montant);
-//    }
+    private void effectuerPaiement(Parent parent) {
+        if (parent.getEnfants().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Aucun enfant à payer.");
+            return;
+        }
+
+        Enfant enfant = selectionnerEnfant(parent.getEnfants());
+        if (enfant == null) return;
+
+        // Calcul montant total à payer
+        double montant = 0;
+        for (Cours cours : listcours) {
+            for (Creneau c : cours.getCreneaux()) {
+                if (c.getEnfantsInscrits().contains(enfant)) {
+                    montant += cours.getMontantHoraire();
+                }
+            }
+        }
+        if(parent.aPaiementPour(enfant)){
+            JOptionPane.showMessageDialog(null, "Cours déjà payé à "+enfant.getNom());
+            return;
+        }
+
+        if (montant == 0) {
+            JOptionPane.showMessageDialog(null, "Aucun cours à payer pour cet enfant.");
+            return;
+        }
+
+        // Choix mode de paiement
+        String[] labels = {"En une fois", "Échelonné"};
+        String[] types = {"paiementUnique", "paiementEchelonne"};
+
+        int choix = JOptionPane.showOptionDialog(null,
+                "Montant à payer : " + montant + " €\nChoisissez le mode de paiement :",
+                "Paiement",
+                JOptionPane.DEFAULT_OPTION,
+                JOptionPane.INFORMATION_MESSAGE,
+                null,
+                labels,
+                labels[0]);
+
+        if (choix == -1) return; // si l'utilisateur annule
+
+        String typePaiement = types[choix];
+        Paiement paiement = new Paiement(enfant, montant, parent);
+
+        ModePaiement modePaiement = Configuration.getInstance().creerModePaiement(typePaiement);
+        paiement.setModePaiement(modePaiement);
+        paiement.effectuerPaiement();
+        parent.enregistrerPaiement(enfant,paiement);
+
+    }
+
 
 
     public void demarrer() {
         chargerUtilisateurs("src/configuration/utilisateurs.txt");
+        // 1. Créer un parent
+        Parent parent = new Parent();
+        parent.setNom("Mbappe");
+        parent.setEmail("mbappe@example.com");
+        parent.setPassword("1234");
+        utilisateurs.add(parent);
 
-        while (true) {
-            Utilisateur utilisateur = connecterUtilisateur();
-            if (utilisateur == null) break;
+        // 2. Créer un enfant et l'ajouter au parent
+        Enfant enfant = new Enfant("Junior", 10);
+        parent.ajouterEnfant(enfant);
+        Enfant enfant1 = new Enfant("janvier",12);
+        parent.ajouterEnfant(enfant1);
+        // 3. Créer un créneau
+        Creneau creneau = new Creneau("lundi", "10:00-12:00", 5);
+        listcreneaux.add(creneau);
 
-            if (utilisateur instanceof Parent) {
-                menuParent((Parent) utilisateur);
-            } else if (utilisateur instanceof Gestionnaire) {
-                menuGestionnaire((Gestionnaire) utilisateur);
-            }
-        }
+        // 4. Créer un cours
+        Cours cours = new Cours("Natation", 20); // 20€ par créneau
+        cours.ajouterCreneau(creneau);
+        listcours.add(cours);
+
+        // 5. Inscrire l'enfant au créneau
+        creneau.ajouterEnfant(enfant);
+        creneau.ajouterEnfant(enfant1);
+
+        // 6. Lancer le menu parent (paiement visible)
+        menuParent(parent);
+
+//        while (true) {
+//            Utilisateur utilisateur = connecterUtilisateur();
+//            if (utilisateur == null) break;
+//
+//            if (utilisateur instanceof Parent) {
+//                menuParent((Parent) utilisateur);
+//            } else if (utilisateur instanceof Gestionnaire) {
+//                menuGestionnaire((Gestionnaire) utilisateur);
+//            }
+//        }
     }
 
 
     //menu du parent
     public void menuParent(Parent parent) {
+        timer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                parent.notifier();
+            }
+        }, 0,5000); // ⏰ tous les jours
         int choix;
         do {
             choix = JOptionPane.showOptionDialog(
@@ -230,7 +299,7 @@ public class EcoleFacade {
                     JOptionPane.DEFAULT_OPTION,
                     JOptionPane.INFORMATION_MESSAGE,
                     null,
-                    new String[]{"Ajouter un enfant", "Afficher mes enfants", "Payer", "Payer un enfant", "Quitter"},
+                    new String[]{"Ajouter un enfant", "Afficher mes enfants", "Payer", "Quitter"},
                     "Ajouter un enfant"
             );
 
@@ -248,72 +317,14 @@ public class EcoleFacade {
                     // Afficher enfants
                     parent.afficherEnfants();
                     break;
-
                 case 2:
-//                    // Payer - paiement général (sans enfant)
-//                    String montantStr = JOptionPane.showInputDialog("Montant à payer:");
-//                    double montant = Double.parseDouble(montantStr);
-//                    choisirEtEffectuerPaiement(parent, montant);
-                    break;
-
+                    effectuerPaiement(parent);
+                break;
                 case 3:
-                    // Payer un enfant
-//                    if (parent.getEnfants().isEmpty()) {
-//                        JOptionPane.showMessageDialog(null, "Vous n'avez pas d'enfants inscrits.");
-//                        break;
-//                    }
-//
-//                    // Choix enfant
-//                    String[] enfantsNoms = parent.getEnfants().stream()
-//                            .map(Enfant::getNom).toArray(String[]::new);
-//                    int choixEnfant = JOptionPane.showOptionDialog(
-//                            null,
-//                            "Choisissez un enfant:",
-//                            "Choix enfant",
-//                            JOptionPane.DEFAULT_OPTION,
-//                            JOptionPane.INFORMATION_MESSAGE,
-//                            null,
-//                            enfantsNoms,
-//                            enfantsNoms[0]
-//                    );
-//                    if (choixEnfant == -1) break; // annulation
-//
-//                    Enfant enfantChoisi = parent.getEnfants().get(choixEnfant);
-//
-//                    // Montant à payer
-//                    String montantEnfantStr = JOptionPane.showInputDialog("Montant à payer pour " + enfantChoisi.getNom() + " :");
-//                    double montantEnfant = Double.parseDouble(montantEnfantStr);
-//
-//                    // Choix mode paiement
-//                    String[] optionsPaiement = {"Paiement échelonné", "Paiement en une fois"};
-//                    int choixPaiement = JOptionPane.showOptionDialog(
-//                            null,
-//                            "Choisissez le mode de paiement:",
-//                            "Mode paiement",
-//                            JOptionPane.DEFAULT_OPTION,
-//                            JOptionPane.INFORMATION_MESSAGE,
-//                            null,
-//                            optionsPaiement,
-//                            optionsPaiement[0]
-//                    );
-//                    if (choixPaiement == -1) break; // annulation
-//
-//                    // Set mode paiement
-//                    if (choixPaiement == 0)
-//                        configuration.Configuration.getInstance().setModePaiement("paiementEchelonne");
-//                    else
-//                        configuration.Configuration.getInstance().setModePaiement("paiementUnique");
-//
-//                    // Effectuer paiement
-//                    effectuerPaiement(parent, montantEnfant);
-//                    JOptionPane.showMessageDialog(null, "Paiement effectué pour " + enfantChoisi.getNom());
-                    break;
-
-                case 4:
                     JOptionPane.showMessageDialog(null, "Se déconnecter");
                     return;
             }
-        } while (choix != 4);
+        } while (choix != 3);
     }
 
     private void menuGestionnaire(Gestionnaire gestionnaire) {
@@ -327,7 +338,6 @@ public class EcoleFacade {
                     JOptionPane.INFORMATION_MESSAGE,
                     null,
                     new String[]{"Créer un créneau",
-                            "Paiement d'un parent",
                             "Créer un cours",
                             "Ajouter un créneau à un cours",
                             "Inscrire un enfant à un créneau et un cours",
@@ -344,10 +354,12 @@ public class EcoleFacade {
                     break;
                 case 2:
                     String nomCours = JOptionPane.showInputDialog("Nom du cours:");
-                    Cours c = new Cours(nomCours);
+                    int prix = Integer.parseInt(JOptionPane.showInputDialog("Prix par créneau (en €):"));
+                    Cours c = new Cours(nomCours, prix);
                     listcours.add(c);
                     JOptionPane.showMessageDialog(null, "Cours ajouté.");
                     break;
+
                 case 3:
                     Cours selectedCours = selectionnerCours(listcours);
                     if (selectedCours == null) {
