@@ -38,12 +38,6 @@ public class Parent extends Utilisateur  {
 		return enfants;
 	}
 
-	@Override
-	public void afficherRole() {
-		System.out.println(nom + " est un parent.");
-	}
-
-
 	public void afficherEnfants() {
 		StringBuilder sb = new StringBuilder("👨‍👩‍👧‍👦 Enfants de " + nom + " :\n\n");
 

@@ -87,5 +87,4 @@ public abstract class Utilisateur {
 		}
 	}
 
-	public abstract void afficherRole();
 }

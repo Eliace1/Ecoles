@@ -41,7 +41,6 @@ public class Paiement implements Notification {
 			notifier(verifierPaiement);
 		}
 	}
-
 	@Override
 	public void notifier(String message) {
 		JOptionPane.showMessageDialog(null,"Notification: "+message);

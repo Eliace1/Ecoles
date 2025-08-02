@@ -22,7 +22,7 @@ public class EcoleFacade {
     private List<Creneau> listcreneaux = new ArrayList<>();
     private Creneau dernierCreneau;
     private Timer timer = new Timer();
-    public void chargerUtilisateurs(String fichier) {
+    private void chargerUtilisateurs(String fichier) {
         try (BufferedReader reader = new BufferedReader(new FileReader(fichier))) {
             String ligne;
             while ((ligne = reader.readLine()) != null) {
@@ -46,7 +46,7 @@ public class EcoleFacade {
     }
 
     //methode connecterUtilisateur
-    public Utilisateur connecterUtilisateur(){
+    private Utilisateur connecterUtilisateur(){
         String[] options = {"Parent", "Gestionnaire"};
         int choix = JOptionPane.showOptionDialog(null,
                 "Qui souhaite se connecter ?",
@@ -134,7 +134,7 @@ public class EcoleFacade {
         return null;
     }
 
-    public void inscrireEnfantACreneauCours() {
+    private void inscrireEnfantACreneauCours() {
         Cours cours = selectionnerCours(listcours);
         if (cours == null) return;
 
@@ -241,57 +241,24 @@ public class EcoleFacade {
 
     public void demarrer() {
         chargerUtilisateurs("src/configuration/utilisateurs.txt");
-        // 1. Créer un parent
-        Parent parent = new Parent();
-        parent.setNom("Mbappe");
-        parent.setEmail("mbappe@example.com");
-        parent.setPassword("1234");
-        utilisateurs.add(parent);
+        while (true) {
+            Utilisateur utilisateur = connecterUtilisateur();
+            if (utilisateur == null) break;
 
-        // 2. Créer un enfant et l'ajouter au parent
-        Enfant enfant = new Enfant("Junior", 10);
-        parent.ajouterEnfant(enfant);
-        Enfant enfant1 = new Enfant("janvier",12);
-        parent.ajouterEnfant(enfant1);
-        // 3. Créer un créneau
-        Creneau creneau = new Creneau("lundi", "10:00-12:00", 5);
-        listcreneaux.add(creneau);
-
-        // 4. Créer un cours
-        Cours cours = new Cours("Natation", 20); // 20€ par créneau
-        cours.ajouterCreneau(creneau);
-        listcours.add(cours);
-
-        // 5. Inscrire l'enfant au créneau
-        creneau.ajouterEnfant(enfant);
-        creneau.ajouterEnfant(enfant1);
-
-        // 6. Lancer le menu parent (paiement visible)
-        menuParent(parent);
-
-//        while (true) {
-//            Utilisateur utilisateur = connecterUtilisateur();
-//            if (utilisateur == null) break;
-//
-//            if (utilisateur instanceof Parent) {
-//                menuParent((Parent) utilisateur);
-//            } else if (utilisateur instanceof Gestionnaire) {
-//                menuGestionnaire((Gestionnaire) utilisateur);
-//            }
-//        }
+            if (utilisateur instanceof Parent) {
+                menuParent((Parent) utilisateur);
+            } else if (utilisateur instanceof Gestionnaire) {
+                menuGestionnaire((Gestionnaire) utilisateur);
+            }
+        }
     }
 
 
     //menu du parent
-    public void menuParent(Parent parent) {
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                parent.notifier();
-            }
-        }, 0,5000); // ⏰ tous les jours
+    private void menuParent(Parent parent) {
         int choix;
         do {
+            parent.notifier();
             choix = JOptionPane.showOptionDialog(
                     null,
                     "Bienvenue Mr " + parent.getNom() + "\nMenu parent",
@@ -351,16 +318,13 @@ public class EcoleFacade {
                     creerCreneau();
                     break;
                 case 1:
-                    break;
-                case 2:
                     String nomCours = JOptionPane.showInputDialog("Nom du cours:");
                     int prix = Integer.parseInt(JOptionPane.showInputDialog("Prix par créneau (en €):"));
                     Cours c = new Cours(nomCours, prix);
                     listcours.add(c);
                     JOptionPane.showMessageDialog(null, "Cours ajouté.");
                     break;
-
-                case 3:
+                case 2:
                     Cours selectedCours = selectionnerCours(listcours);
                     if (selectedCours == null) {
                         JOptionPane.showMessageDialog(null, "Aucun cours sélectionné.");
@@ -381,10 +345,10 @@ public class EcoleFacade {
                     selectedCours.ajouterCreneau(creneauChoisi);
                     break;
 
-                case 4:
+                case 3:
                     inscrireEnfantACreneauCours();
                     break;
-                case 5:
+                case 4:
                     Cours coursAffichage = selectionnerCours(listcours);
                     if (coursAffichage == null) break;
 
@@ -403,7 +367,7 @@ public class EcoleFacade {
                         JOptionPane.showMessageDialog(null, sb1.toString());
                     }
                     break;
-                case 6:
+                case 5:
                     if (listcours.isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Aucun cours disponible.");
                         break;
@@ -413,12 +377,11 @@ public class EcoleFacade {
                         coursSelectionne.afficherCreneaux(); // affiche via JOptionPane
                     }
                     break;
-                case 7:
+                case 6:
                     JOptionPane.showMessageDialog(null,"Déconnexion");
                     break;
             }
-
-        } while (choix != 7);
+        } while (choix != 6);
         return ;
     }
 }
